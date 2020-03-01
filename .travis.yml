@@ -3,22 +3,22 @@ sudo: required
 addons:
   ssh_known_hosts: 198.98.49.249
 script:
-- bash -x ./buildall.sh
+- bash -x ./build-all.sh
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_29833f8e4c2c_key -iv $encrypted_29833f8e4c2c_iv -in /home/travis/build/tomeshnet/mesh-packages/deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 deploy:
-  provider: releases
-  overwrite: true
-  skip_cleanup: true
-  api_key:
-    secure: RWdCDcxxkPTGly7KK5V67e5pV7Bw2QAb1ozjlgg1ElKvbCIllTyGquRTBIdpyORUip3jbD4DM7cn/CLqm+IRMQCIwvgmHWoY6M2uvBMolM1Beo+jmHiAZi4Sj+Q2oK9yEJnjn3aq8VMjokRs7bkIKRKgzWEw1v8YXHfGcgS3kYYLlx2z17Pa2mVmyKwdnizJlZSGL5c9QUvtMRNF9mZ9/6PzA/BWgOuOglUdX4tlovG15hZxHyw05huMNiQzGRa10oRdPHqBpdFUS7MJUuTI5efJlOh3SnMF3E0LIZjZ1cymihAkYmA7guTC2zAYXSPGeNitLy8xYLPVdlSbGMqUqOhAfQ3TJ8BraW8sZRejXDSrnx0Pkfnxff1CRagFAb5Euh6mjFl0vhGrolQtS/kEgPFNxG1+EW47CSVE/Ms4CGNtKKtOo/ZalRRrWoU5m89ddAeBzkn+kq4IG9co1MbwoF1KnnONv2sMo0mZDnojOZEk+hovpctO3RcJ77uwHSMXxEbf8ETiSHgbshF/XdahVcdPZ4x0Pmlaz/gAnivVg/9xswoacsHu39A1IyLYVuyTM/2TZlynjwxpELSkUGjD1mnYG0g1fsUVcx7ObChJ4uH1YAo+qTjg4C6anIPXURLLi4RPpjQOYFhYMvZViaLZ0EauKi1CDovlkKthI9/m8z0=
-  file_glob: true
-  file: /home/travis/build/tomeshnet/mesh-packages/packages/*.deb
-  on:
-      repo: darkdrgn2k/packages
+#  provider: releases
+#  overwrite: true
+#  skip_cleanup: true
+#  api_key:
+#    secure: RWdCDcxxkPTGly7KK5V67e5pV7Bw2QAb1ozjlgg1ElKvbCIllTyGquRTBIdpyORUip3jbD4DM7cn/CLqm+IRMQCIwvgmHWoY6M2uvBMolM1Beo+jmHiAZi4Sj+Q2oK9yEJnjn3aq8VMjokRs7bkIKRKgzWEw1v8YXHfGcgS3kYYLlx2z17Pa2mVmyKwdnizJlZSGL5c9QUvtMRNF9mZ9/6PzA/BWgOuOglUdX4tlovG15hZxHyw05huMNiQzGRa10oRdPHqBpdFUS7MJUuTI5efJlOh3SnMF3E0LIZjZ1cymihAkYmA7guTC2zAYXSPGeNitLy8xYLPVdlSbGMqUqOhAfQ3TJ8BraW8sZRejXDSrnx0Pkfnxff1CRagFAb5Euh6mjFl0vhGrolQtS/kEgPFNxG1+EW47CSVE/Ms4CGNtKKtOo/ZalRRrWoU5m89ddAeBzkn+kq4IG9co1MbwoF1KnnONv2sMo0mZDnojOZEk+hovpctO3RcJ77uwHSMXxEbf8ETiSHgbshF/XdahVcdPZ4x0Pmlaz/gAnivVg/9xswoacsHu39A1IyLYVuyTM/2TZlynjwxpELSkUGjD1mnYG0g1fsUVcx7ObChJ4uH1YAo+qTjg4C6anIPXURLLi4RPpjQOYFhYMvZViaLZ0EauKi1CDovlkKthI9/m8z0=
+#  file_glob: true
+#  file: /home/travis/build/tomeshnet/mesh-packages/packages/*.deb
+#  on:
+#      repo: tomeshnet/packages
   provider: script
   skip_cleanup: true
   script: rsync -r --delete-after --quiet /home/travis/build/tomeshnet/mesh-packages/packages/*.deb tomeshdeb@198.98.49.249:/home/tomeshdeb/deb ; ssh tomeshdeb@198.98.49.249 "./updateRepo" || return true
