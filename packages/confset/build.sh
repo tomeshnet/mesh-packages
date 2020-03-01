@@ -26,4 +26,4 @@ echo Architecture: $ARCH >> root/DEBIAN/control
 sudo chown -R root.root root
 dpkg-deb --build root
 sudo rm -rf root
-mv root.deb ../confget-$version-$ARCH.deb
+mv root.deb ../confset-$version-$ARCH.deb
