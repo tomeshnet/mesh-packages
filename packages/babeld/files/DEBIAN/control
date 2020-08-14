@@ -1,0 +1,5 @@
+Package: babeld
+Maintainer: Darkdrgn2k
+Description: "Babled package"
+Section: "mesh"
+Priority: "optional"
