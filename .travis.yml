@@ -9,8 +9,6 @@ script:
 - git clone https://github.com/tomeshnet/mesh-packages.git -b travis
 - cp mesh-packages/README.md mesh-deb
 - cp -r mesh-packages/repos mesh-deb/repos
-- pwd
-- find .
 - cd mesh-packages
 - echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
 - echo "$GPG" >> gpg.key
@@ -21,7 +19,7 @@ script:
 - bash ./build-all.sh
 - REPREPRO_BASE_DIR="../mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
 - cd ..
-- find mesh-deb
+- find .
 deploy:
   provider: pages
   skip-cleanup: true
