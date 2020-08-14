@@ -9,6 +9,8 @@ script:
 - cd ..
 - git clone https://github.com/tomeshnet/mesh-packages.git -b travis
 - cp mesh-packages/README.md mesh-deb
+- cp -r mesh-packages/repos mesh-deb/repos
+- find  ~/mesh-deb
 - cd mesh-packages
 - echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
 - echo "$GPG" >> gpg.key
