@@ -9,7 +9,7 @@ sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf # ARM  C
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  # ARM64 Cross Compiler
 
 # Install Go development environment
-wget https://dl.google.com/go/go1.11.linux-arm64.tar.gz 
+wget https://dl.google.com/go/go1.11.linux-arm64.tar.gz
 sudo tar -C /usr/local -xzf go1.11.linux-arm64.tar.gz
 rm -rf go1.11.linux-arm64.tar.gz
 GOROOT=/usr/local/go
