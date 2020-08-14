@@ -4,13 +4,13 @@ script:
 - sudo apt-get install reprepro
 - mkdir mesh-deb
 - cd mesh-deb
-- git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages
-- ls -la
+- git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
 - cd ..
 - git clone https://github.com/tomeshnet/mesh-packages.git -b travis
 - cp mesh-packages/README.md mesh-deb
 - cp -r mesh-packages/repos mesh-deb/repos
-- find  ~/mesh-deb
+- pwd
+- find .
 - cd mesh-packages
 - echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
 - echo "$GPG" >> gpg.key
