@@ -19,7 +19,7 @@ script:
 - gpg --allow-secret-key-import --import gpg.key
 - gpg --list-keys
 - bash ./build-all.sh
-- REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
+- REPREPRO_BASE_DIR="../mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
 - cd ..
 - find mesh-deb
 deploy:
