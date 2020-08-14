@@ -1,8 +1,15 @@
 dist: xenial
 sudo: required
 script:
+- apt-get -y install gpg
 - mkdir mesh-deb
+- echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
+- echo $GPG >> gpg.key
+- echo "-----END PGP PRIVATE KEY BLOCK-----" >> gpg.key
 - git clone https://github.com/tomeshnet/mesh-packages.git
+- gpg --import mesh-packages/gpg.pub
+- gpg --allow-secret-key-import --import ../gpg.key
+- gpg --list-keys
 - cp mesh-packages/README.md mesh-deb
 - cd mesh-packages
 - git checkout travis
