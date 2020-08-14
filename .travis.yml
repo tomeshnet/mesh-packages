@@ -20,8 +20,8 @@ script:
 - gpg --list-keys
 - bash ./build-all.sh
 - cd ..
-- REPREPRO_BASE_DIR="~/mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
-- find  ~/mesh-deb
+- REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
+- find mesh-deb
 deploy:
   provider: pages
   skip-cleanup: true
