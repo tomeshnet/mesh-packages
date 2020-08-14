@@ -5,6 +5,7 @@ script:
 - git clone https://github.com/tomeshnet/mesh-packages.git
 - cp mesh-packages/README.md mesh-deb
 - cd mesh-packages
+- git checkout travis
 - bash ./build-all.sh
 - ls -la
 deploy:
