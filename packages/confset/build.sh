@@ -27,5 +27,5 @@ sudo chown -R root.root root
 sudo chmod a+x root/usr/bin/*
 sudo dpkg-deb --build root
 
-rm -rf root
+sudo rm -rf root
 mv root.deb ../confset-$version-$ARCH.deb
