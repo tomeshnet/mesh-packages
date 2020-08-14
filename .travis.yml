@@ -1,20 +1,25 @@
 dist: xenial
 sudo: required
 script:
-- apt-get -y install gpg
+- sudo apt-get install reprepro
 - mkdir mesh-deb
-- git clone https://github.com/tomeshnet/mesh-packages.git
+- cd mesh-deb
+- git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages
+- ls -la
+- cd ..
+- git clone https://github.com/tomeshnet/mesh-packages.git -b travis
 - cp mesh-packages/README.md mesh-deb
 - cd mesh-packages
-- git checkout travis
 - echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
-- echo $GPG >> gpg.key
+- echo "$GPG" >> gpg.key
 - echo "-----END PGP PRIVATE KEY BLOCK-----" >> gpg.key
 - gpg --import mesh-packages/gpg.pub
 - gpg --allow-secret-key-import --import gpg.key
 - gpg --list-keys
 - bash ./build-all.sh
-- ls -la
+- cd ..
+- REPREPRO_BASE_DIR="~/mesh-deb/repos/apt/debian" reprepro includedeb stretch *.deb
+- find  ~/mesh-deb
 deploy:
   provider: pages
   skip-cleanup: true
