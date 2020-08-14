@@ -4,13 +4,13 @@ script:
 - mkdir mesh-deb
 - git clone https://github.com/tomeshnet/mesh-packages.git
 - cp mesh-packages/README.md mesh-deb
-- touch mesh-deb/TEST.md
+- cd mesh-packages
+- bash ./buildall.sh
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: mesh-deb
   keep-history: false
-  fqdn: docs.tomesh.net
   on:
     branch: travis
