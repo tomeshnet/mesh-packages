@@ -16,7 +16,7 @@ script:
 - bash ./build-all.sh
 - REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb || true
 - wget https://github.com/libthinkpad/apindex/archive/2.2.tar.gz
-- tar xvf apindex-2.2.tar.gz
+- tar xvf 2.2.tar.gz
 - cd apindex-2.2
 - cmake . -DCMAKE_INSTALL_PREFIX=/usr
 - sudo make install
