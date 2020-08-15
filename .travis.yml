@@ -15,7 +15,7 @@ script:
 - gpg --list-keys
 - bash ./build-all.sh
 - REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb
-- python make_index.py mesh-deb/repos
+- python build-index.py mesh-deb/repos
 deploy:
   provider: pages
   skip-cleanup: true
