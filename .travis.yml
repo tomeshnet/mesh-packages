@@ -1,7 +1,7 @@
 dist: xenial
 sudo: required
 before_install:
-  - openssl aes-256-cbc -K $encrypted_011506a0d8d1_key -iv $encrypted_011506a0d8d1_iv -in gpg.key.enc -out gpg.key -
+  - openssl aes-256-cbc -K $encrypted_011506a0d8d1_key -iv $encrypted_011506a0d8d1_iv -in gpg.key.enc -out gpg.key -d
 script:
 - sudo apt-get install reprepro
 - mkdir mesh-deb
