@@ -29,4 +29,4 @@ deploy:
   local-dir: mesh-deb
   keep-history: false
   on:
-    branch: travis
+    branch: master
