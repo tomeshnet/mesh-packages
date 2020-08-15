@@ -3,7 +3,7 @@ sudo: required
 before_install:
   - openssl aes-256-cbc -K $encrypted_011506a0d8d1_key -iv $encrypted_011506a0d8d1_iv -in gpg.key.enc -out gpg.key -d
 script:
-- sudo apt-get -y install reprepro python
+- sudo apt-get -y install reprepro
 - mkdir mesh-deb
 - cd mesh-deb
 - git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
@@ -14,8 +14,13 @@ script:
 - gpg --allow-secret-key-import --import gpg.key
 - gpg --list-keys
 - bash ./build-all.sh
-- REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb
-- python build-index.py mesh-deb/repos
+- REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb || true
+- wget https://github.com/libthinkpad/apindex/archive/2.2.tar.gz
+- tar xvf apindex-2.2.tar.gz
+- cd apindex-2.2
+- cmake . -DCMAKE_INSTALL_PREFIX=/usr
+- sudo make install
+- apindex mesh-deb/repos
 deploy:
   provider: pages
   skip-cleanup: true
