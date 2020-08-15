@@ -8,9 +8,7 @@ script:
 - cd ..
 - cp README.md mesh-deb
 - cp -r repos mesh-deb/repos
-- echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > gpg.key
-- echo -e "$GPGKEY" >> gpg.key
-- echo "-----END PGP PRIVATE KEY BLOCK-----" >> gpg.key
+- echo -e "$GPGKEY" > gpg.key
 - gpg --import gpg.pub
 - gpg --allow-secret-key-import --import gpg.key
 - gpg --list-keys
