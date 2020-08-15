@@ -1,0 +1,6 @@
+Package: confset
+Maintainer: Darkdrgn2k
+Description: "confset bash script as a counterpart to the confget tool"
+Section: "tools"
+Priority: "optional"
+Depends: confget
