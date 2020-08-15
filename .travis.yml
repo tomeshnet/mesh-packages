@@ -20,6 +20,7 @@ script:
 - cd apindex-2.2
 - cmake . -DCMAKE_INSTALL_PREFIX=/usr
 - sudo make install
+- cd ..
 - apindex mesh-deb/repos
 deploy:
   provider: pages
