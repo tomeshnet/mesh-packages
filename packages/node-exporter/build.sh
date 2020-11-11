@@ -42,7 +42,7 @@ echo Architecture: $ARCH >> root/DEBIAN/control
 chmod 755 root/DEBIAN/postinst
 
 mkdir -p root/var/lib/node_exporter
-echo DEB_VERSION: $$NODEEXPORTER_VERSION > root/var/lib/node_exporter/version.txt
+echo DEB_VERSION{version="$NODEEXPORTER_VERSION"} 1 > root/var/lib/node_exporter/version.prom
 sudo chown -R root.root root
 dpkg-deb --build root
 sudo rm -rf root
