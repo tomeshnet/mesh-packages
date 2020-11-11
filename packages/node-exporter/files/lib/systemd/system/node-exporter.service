@@ -1,0 +1,14 @@
+[Unit]
+Description=Node Exporter Server daemon
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/node-exporter/node_exporter
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
