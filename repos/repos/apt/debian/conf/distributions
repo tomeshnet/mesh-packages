@@ -1,0 +1,7 @@
+Origin: Toronto Mesh Packages
+Label: Toronto Mesh Packages
+Codename: stretch
+Architectures: i386 amd64 armhf arm64 mipsel
+Components: main
+Description: Apt repository Toronto Mesh Packages
+SignWith: 13AC5A576BCEB338

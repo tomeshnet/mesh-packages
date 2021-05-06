@@ -1,0 +1,41 @@
+Package: babeld
+Maintainer: Darkdrgn2k
+Priority: "optional"
+Section: "mesh"
+Filename: pool/main/b/babeld/babeld_1.9.2-dirty_amd64.deb
+Size: 170318
+SHA256: 4bce3f40db5fcaf0b66fad2ec53addf22b55c80f65a35202365a2e8939d2d594
+SHA1: 61b7bf17a5019452aec1dd7bfbf9079bf6f34e67
+MD5sum: a0f7ef67fec22634ab799c7b6a4dac96
+Description: "Babled package"
+Version: 1.9.2-dirty
+Architecture: amd64
+
+Package: babeld-tomesh
+Maintainer: Darkdrgn2k
+Priority: "optional"
+Section: "mesh"
+Filename: pool/main/b/babeld-tomesh/babeld-tomesh_1_all.deb
+Size: 1142
+SHA256: ff7dc94e6e499cddec0293ff3f8e539faf56889d311c963f0f1da4de833bd4dc
+SHA1: 336ddd3fe5815b47a94cb2b4c6826344c95c6c78
+MD5sum: ca614f24f6feaf7d2f86b2a199753869
+Description: "Babled Tomesh package"
+Depends: babeld, confset
+Version: 1
+Architecture: all
+
+Package: confset
+Maintainer: Darkdrgn2k
+Priority: "optional"
+Section: "tools"
+Filename: pool/main/c/confset/confset_0.0.1_all.deb
+Size: 1042
+SHA256: db5ef84bf7d1e4c450dbf2fbebe83e70d38d942b746c6051dc4f494c647fb9d3
+SHA1: b372d40464e0d1cb6ae1c237f02fdc4ea3aac137
+MD5sum: 75af277d5580cec4187383a8294fc508
+Description: "confset bash script as a counterpart to the confget tool"
+Depends: confget
+Version: 0.0.1
+Architecture: all
+

@@ -1,0 +1,72 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Origin: Toronto Mesh Packages
+Label: Toronto Mesh Packages
+Codename: stretch
+Date: Sat, 15 Aug 2020 04:27:35 UTC
+Architectures: i386 amd64 armhf arm64 mipsel
+Components: main
+Description: Apt repository Toronto Mesh Packages
+MD5Sum:
+ 01c95016ce627745976d8f7f6706fcc1 1210 main/binary-i386/Packages
+ be3e33c376bbd1ad18eb89c83b9ef6cb 598 main/binary-i386/Packages.gz
+ a2336af63d9bccb4a3fce44cb23782c3 144 main/binary-i386/Release
+ d0e8e665d8eaa9f0d7933ff4c9e8172f 1212 main/binary-amd64/Packages
+ 18302f7ddfa594e5de1ac0207b48b8ef 599 main/binary-amd64/Packages.gz
+ 7d4c7a0a5620ae8eedd0e35e9e182ab3 145 main/binary-amd64/Release
+ fe3a043019caa992c5797ad7efe234ce 1212 main/binary-armhf/Packages
+ 3d4714461211f0ddd066d00b2635c7dc 603 main/binary-armhf/Packages.gz
+ 1d24a2ea1d60dab51f3e9dd2d0821682 145 main/binary-armhf/Release
+ a430dcae51be9bf73465230252ad9c4d 1212 main/binary-arm64/Packages
+ a9152a7980002fa6c1b5eb6fe9cc0fba 599 main/binary-arm64/Packages.gz
+ d7b796004c41f749ba0893351b56e29b 145 main/binary-arm64/Release
+ b9944b11b11f936ce142194e3d4f8ea6 832 main/binary-mipsel/Packages
+ 36b449d59ab8e1ff35c6a4147c692d55 472 main/binary-mipsel/Packages.gz
+ 23e3289212137599ea76382da365d804 146 main/binary-mipsel/Release
+SHA1:
+ 0ed95e0741bad75ed324441e0ec4b1d163e49a67 1210 main/binary-i386/Packages
+ 24162eb06dcc397981660b7f5c3711f283cf4c16 598 main/binary-i386/Packages.gz
+ 463e6df56d34184af88e782d250583e211da22ed 144 main/binary-i386/Release
+ beabc694cef68f7ae7bc6acef30a09f15fda02a5 1212 main/binary-amd64/Packages
+ cc46e3ce7b214b00f723782ed1d0f18e2772c7ad 599 main/binary-amd64/Packages.gz
+ de6872887a5ebd29fdefd8ef6bf09bfbb6a83e6c 145 main/binary-amd64/Release
+ 3d666e7a96ba4315a7954b745ac1c60b932144cd 1212 main/binary-armhf/Packages
+ 6bbd69454572b1703850bb69da711825969f477a 603 main/binary-armhf/Packages.gz
+ 878d61b72c8d4eb9d71e82b55ce421db6531e5ea 145 main/binary-armhf/Release
+ 0e78efdef2b5c4bea70dfd15317668229f5ea16b 1212 main/binary-arm64/Packages
+ cbdb7d5ce92865b2eafd7bb7439b1c316a8d1ae5 599 main/binary-arm64/Packages.gz
+ fa7c3b2e3744d97382342996b7598f4f21a526c2 145 main/binary-arm64/Release
+ e1b74bc2d6855c9f526cdd975b1dd64f4ace519d 832 main/binary-mipsel/Packages
+ 39f304d2290e90ccab574870110f2e7f3a1787e1 472 main/binary-mipsel/Packages.gz
+ 32f056d9b918992673e669ab586c720f3bbab1ef 146 main/binary-mipsel/Release
+SHA256:
+ 3688c6899d80e981ff971f734b6fbafaf13a6fb13689c29e4e26492405329cad 1210 main/binary-i386/Packages
+ 112c949af20da8f2c1cfbb6f38e49a2ddb131a7b923281aa96c1667883c4318b 598 main/binary-i386/Packages.gz
+ 4095455590cde1f3ae78e6c81d660df3f2ded386ae2859bd1c701570169d3727 144 main/binary-i386/Release
+ fec93f4502f7c669124972a3036ee63478b35a011e392d2c7e715a3cd68b0018 1212 main/binary-amd64/Packages
+ 6fbb43d5719f7cc68938ea6db3d6c190420a6db7e57e32f97733202d9ae97bd9 599 main/binary-amd64/Packages.gz
+ 73a182b9f5da21758ebaf143600b120895a44ea227ad34d69723b7d04d3c92be 145 main/binary-amd64/Release
+ e2912fba6b727c43016ce002cf61d520d4d4348d64d8990bc4ca2b6736a24436 1212 main/binary-armhf/Packages
+ cf1cda96cbc36bb100bbfa9d14ca1eb0943859b462db66afc4ff0226c99e4512 603 main/binary-armhf/Packages.gz
+ e438d1c0227fd47b378efd6d5634576185a35fd4d68d1d4bb6c753669b357c7b 145 main/binary-armhf/Release
+ b3ecaf1139925b92b4a9d85b39a85ce74b3440f9c519f33bdb46c57dc82ebe28 1212 main/binary-arm64/Packages
+ 8439d94e8163b9c6ecb9ede08a6c384b0a66e2a19f1eaa0424ec54e775923f66 599 main/binary-arm64/Packages.gz
+ e223f352b4e87f2ccbd3d7c88d34dc6d636931f09eb09c8f7c7265bdd13cbbc7 145 main/binary-arm64/Release
+ b3b77b4600256e64a9e353d635abc9dc2b4ef460f9b2819f6c2ac2773f3471f6 832 main/binary-mipsel/Packages
+ dc5510f1df41f1e416335cc594633099f9884ad329b37263b18df11acd24feb9 472 main/binary-mipsel/Packages.gz
+ 1c2853dc9242222328cd8a6a87d30046676712290d97c55b67caf9f266dd21ae 146 main/binary-mipsel/Release
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQGcBAEBCAAGBQJfN2Q5AAoJEBOsWldrzrM4F48MAJgVXhoByIGaHs4+jilZUIA6
+7SI6Yq4RxrztJEw7CX2dG3MqwHm+GrC9yh2fwMXgUY4rdDPR8KIK6IXF0+xrf7cO
+yAH2wP/3BqwaP9kWnal+xhsclVFu2cwRjTzgNKP6YpmC/oGUDEPtAIScSA29zxrh
+ft4/SxIwQtAjUkDZE0y5aeK6zp4rc79CrZ7o3bGxEyjpXYP5bKgVHKV1Kbx4FuEa
+5m0lKrXLiKac8I2OB2GdQSjXyeAilLdTz9fjS9tH0ba4ZLyNRXe2iITbZLfhaXum
+4/XubO8JqtWBgHgtYPTe3IQFgeIrC4KUIVs4qZdviFwHdyiD9wDB2byLNq3VcnFJ
+l4fh+sEeSW3F81B+N5LFFTuF0q5yvtUyZXTPcb3g2MJoG5kvVBprpMTS3E4TplMU
+29XHZKlPZEnQwe1X3c8Z3FQvL5qrHpYUfBjf8QNcjdoEqT0hOUfQEcxmFg5TlvKm
+L74UsJL7FmgLXFuTALyc4ACQX2pUXiHzbdAwIzV6IQ==
+=JZ7T
+-----END PGP SIGNATURE-----
