@@ -1,0 +1,5 @@
+Package: node-exporter
+Maintainer: Darkdrgn2k
+Description: "node-exporter for prometheus server package"
+Section: "monitoring"
+Priority: "optional"
