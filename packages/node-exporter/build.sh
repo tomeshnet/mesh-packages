@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODEEXPORTER_VERSION="1.0.1"
+NODEEXPORTER_VERSION="1.1.2"
 
 case "$ARCH" in
   amd64)
