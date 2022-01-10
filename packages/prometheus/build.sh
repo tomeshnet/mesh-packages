@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROMETHEUS_VERSION="2.20.0-rc.0"
+PROMETHEUS_VERSION="2.32.1"
 
 case "$ARCH" in
   amd64)
