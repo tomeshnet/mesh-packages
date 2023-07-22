@@ -18,15 +18,23 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get -y install reprepro
+          pwd
+          ls -la
+          echo "--------------"
           cd $GITHUB_WORKSPACE
+          pwd
           ls -la
           echo "--------------"
           mkdir mesh-deb
           cd mesh-deb
           git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
-          cd ..
-          ls -la
           pwd
+          ls -la
+          echo "--------------"
+          cd ..
+          pwd
+          ls -la
+          echo "--------------"
           cp README.md mesh-deb
           cp -r repos mesh-deb/repos
           gpg --import gpg.pub
