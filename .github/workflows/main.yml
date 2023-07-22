@@ -3,26 +3,50 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - gh-actions2
   pull_request:
     branches:
-      - master
+      - gh-actions2
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          sudo apt-get -y install reprepro
+          mkdir mesh-deb
+          cd mesh-deb
+          git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
+          cd ..
+          cp README.md mesh-deb
+          cp -r repos mesh-deb/repos
+          gpg --import gpg.pub
+          gpg --allow-secret-key-import --import gpg.key
+          gpg --list-keys
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
+      - name: Build All
+        run: |
+          bash ./build-all.sh
 
-      - name: Install dependencies
-        run: npm install
+      - name: Include Deb Packages
+        run: |
+          REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb || true
 
-      - name: Run tests
-        run: npm test
+      - name: Install apindex
+        run: |
+          wget https://github.com/libthinkpad/apindex/archive/2.2.tar.gz
+          tar xvf 2.2.tar.gz
+          cd apindex-2.2
+          cmake . -DCMAKE_INSTALL_PREFIX=/usr
+          sudo make install
+          cd ..
+
+      - name: LS
+        run: |
+          ls -la
+          pwd
+      - name: Generate apindex
+        run: |
+          apindex mesh-deb/repos
