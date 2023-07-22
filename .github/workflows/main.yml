@@ -8,6 +8,10 @@ on:
     branches:
       - gh-actions2
 
+
+env:
+  GPGKEY: ${{ secrets.GPGKEY }}  
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,28 +22,15 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get -y install reprepro
-          echo $(pwd)
-          ls -la
-          echo "--------------"
-          cd $GITHUB_WORKSPACE
-          echo $(pwd)
-          ls -la
-          echo "--------------"
           mkdir mesh-deb
           cd mesh-deb
           git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
-          echo $(pwd)
-          ls -la
-          echo "--------------"
-          cd ..
-          echo $(pwd)
-          ls -la
-          echo "--------------"
           cp README.md mesh-deb
-          cp -r repos mesh-deb/repos
+          openssl aes-256-cbc -d -in gpg.key.enc -out gpg.key -k $GPGKEY
           gpg --import gpg.pub
           gpg --allow-secret-key-import --import gpg.key
           gpg --list-keys
+          cp -r repos mesh-deb/repos
 
       - name: Build All
         run: |
