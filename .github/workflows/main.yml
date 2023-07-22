@@ -21,15 +21,16 @@ jobs:
         uses: actions/checkout@v3
       - name: Install Dependencies
         run: |
+          cd $GITHUB_WORKSPACE
+          openssl aes-256-cbc -d -in gpg.key.enc -out gpg.key -k $GPGKEY
+          gpg --import gpg.pub
+          gpg --allow-secret-key-import --import gpg.key
+          gpg --list-keys
           sudo apt-get -y install reprepro
           mkdir mesh-deb
           cd mesh-deb
           git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
           cp README.md mesh-deb
-          openssl aes-256-cbc -d -in gpg.key.enc -out gpg.key -k $GPGKEY
-          gpg --import gpg.pub
-          gpg --allow-secret-key-import --import gpg.key
-          gpg --list-keys
           cp -r repos mesh-deb/repos
 
       - name: Build All
