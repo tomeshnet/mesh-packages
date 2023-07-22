@@ -20,6 +20,8 @@ jobs:
           cd mesh-deb
           git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
           cd ..
+          ls -la
+          pwd
           cp README.md mesh-deb
           cp -r repos mesh-deb/repos
           gpg --import gpg.pub
