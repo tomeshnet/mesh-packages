@@ -23,7 +23,8 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "-------------------------------------"
           cd $GITHUB_WORKSPACE
-          openssl aes-256-cbc -d -in gpg.key.enc -out gpg.key -k $GPGKEY
+          cat gpg.key.enc | base64 -d > gpg.key.env.bin
+          openssl aes-256-cbc -d -in gpg.key.env.bin -out gpg.key -k $GPGKEY
           gpg --import gpg.pub
           gpg --allow-secret-key-import --import gpg.key
           gpg --list-keys
