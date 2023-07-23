@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Install Dependencies!
         run: |
+          set -x
           echo "-------------------------------------"
           echo $GITHUB_WORKSPACE
           echo "-------------------------------------"
