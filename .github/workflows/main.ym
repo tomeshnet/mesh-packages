@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Install Dependencies
+      - name: Install Dependencies!
         run: |
           echo "-------------------------------------"
           echo $GITHUB_WORKSPACE
