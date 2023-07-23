@@ -22,7 +22,7 @@ jobs:
       - name: Install Dependencies
         run: |
           echo $GITHUB_WORKSPACE
-          echo ----------------------------------------
+          echo -------------------------------------
           cd $GITHUB_WORKSPACE
           openssl aes-256-cbc -d -in gpg.key.enc -out gpg.key -k $GPGKEY
           gpg --import gpg.pub
