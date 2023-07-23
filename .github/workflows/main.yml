@@ -19,9 +19,6 @@ jobs:
       - name: Install Dependencies!
         run: |
           set -x
-          echo "-------------------------------------"
-          echo $GITHUB_WORKSPACE
-          echo "-------------------------------------"
           cd $GITHUB_WORKSPACE
           cat gpg.key.enc | base64 -d > gpg.key.env.bin
           openssl aes-256-cbc -d -in gpg.key.env.bin -out gpg.key -k $GPGKEY
@@ -32,13 +29,14 @@ jobs:
           mkdir mesh-deb
           cd mesh-deb
           git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
-          git checkout
-          ls -la
+          cd ..
           cp README.md mesh-deb
           cp -r repos mesh-deb/repos
 
       - name: Build All
         run: |
+          set -x
+          pwd
           bash ./build-all.sh
 
       - name: Include Deb Packages
