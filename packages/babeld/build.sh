@@ -29,7 +29,7 @@ root=$(pwd)
 cp -R files/* root/
 chmod 755 root/DEBIAN/postinst
 
-git clone git://github.com/jech/babeld.git tmp
+git clone https://github.com/jech/babeld tmp
 cd tmp
 sed -i "s|PREFIX = /usr/local|PREFIX = $root/root/|" Makefile
 make $args
