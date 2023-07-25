@@ -26,7 +26,7 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 # Define archetectures to compile for
 ARCHS="i386 amd64 armhf arm64 all"
-ARCHS="armhf"
+#ARCHS="armhf"
 
 # Loop through all folders in packages/
 cd packages
