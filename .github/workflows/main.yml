@@ -57,5 +57,16 @@ jobs:
           ls -la
           pwd
       - name: Generate apindex
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git fetch origin gh-pages:gh-pages
+          git checkout gh-pages
           apindex mesh-deb/repos
+          rm -fr repos
+          mv mesh-deb/repos ./
+          git add repos
+          git commit -m "Automated commit from GitHub Action"
+          git push origin HEAD
