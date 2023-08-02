@@ -30,7 +30,7 @@ ARCHS="i386 amd64 armhf arm64 all"
 
 # Loop through all folders in packages/
 cd packages
-for PKG in b*/ ; do
+for PKG in */ ; do
     # Loop through all archetectures to cross compile to
     for ARCH in $ARCHS; do
         export ARCH
