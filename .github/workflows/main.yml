@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - gh-actions2
+      - master
   pull_request:
     branches:
-      - gh-actions2
+      - master
 env:
   GPGKEY: ${{ secrets.GPGKEY }}    
 jobs:
