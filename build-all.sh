@@ -15,8 +15,8 @@ rm -rf go1.11.linux-arm64.tar.gz
 GOROOT=/usr/local/go
 
 # Install Node.js
-NODEJS_PREFIX=10
-NODEJS_VERSION="$NODEJS_PREFIX.15.3"
+NODEJS_PREFIX=20
+#NODEJS_VERSION="$NODEJS_PREFIX.15.3"
 curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
 sleep 1
 sudo apt-get install -y nodejs
