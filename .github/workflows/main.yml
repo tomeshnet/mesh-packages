@@ -7,22 +7,67 @@ on:
   pull_request:
     branches:
       - master
-
+env:
+  GPGKEY: ${{ secrets.GPGKEY }}    
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Dependencies!
+        run: |
+          set -x
+          cd $GITHUB_WORKSPACE
+          cat gpg.key.enc | base64 -d > gpg.key.env.bin
+          openssl aes-256-cbc -d -in gpg.key.env.bin -out gpg.key -k $GPGKEY
+          gpg --import gpg.pub
+          gpg --allow-secret-key-import --import gpg.key
+          gpg --list-keys
+          sudo apt-get -y install reprepro
+          mkdir mesh-deb
+          cd mesh-deb
+          git clone https://github.com/tomeshnet/mesh-packages.git -b gh-pages .
+          cd ..
+          cp README.md mesh-deb
+          cp -r repos mesh-deb/repos
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
+      - name: Build All
+        run: |
+          set -x
+          pwd
+          bash ./build-all.sh
 
-      - name: Install dependencies
-        run: npm install
+      - name: Include Deb Packages
+        run: |
+          REPREPRO_BASE_DIR="mesh-deb/repos/apt/debian" reprepro includedeb stretch packages/*.deb || true
 
-      - name: Run tests
-        run: npm test
+      - name: Install apindex
+        run: |
+          wget https://github.com/libthinkpad/apindex/archive/2.2.tar.gz
+          tar xvf 2.2.tar.gz
+          cd apindex-2.2
+          cmake . -DCMAKE_INSTALL_PREFIX=/usr
+          sudo make install
+          cd ..
+
+      - name: LS
+        run: |
+          ls -la
+          pwd
+          echo "-----"
+      - name: Generate apindex
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git fetch origin gh-pages:gh-pages
+          git checkout gh-pages
+          apindex mesh-deb/repos
+          rm -fr repos
+          mv mesh-deb/repos ./
+          git add repos
+          git commit -m "Automated commit from GitHub Action"
+          git push origin HEAD
